@@ -1,3 +1,7 @@
+## Video Demo
+[![Shopping Robot Demo](http://img.youtube.com/vi/DUbBy7oAF0g/0.jpg)](http://www.youtube.com/watch?v=DUbBy7oAF0g "Shopping Robot Demo")
+
+
 ## Webots World Adjustments
 - Tiago Lidar translation changed to:  [0.1, 0, 0.2]
 - Display size changed
@@ -17,5 +21,3 @@
 
 ## Odometry
 - The code can be tested with odometry but it still has slight calculation errors and often crashes into obstacles. If you wish to test with odometry follow the comments in the PLAN and NAVIGATE modes and uncomment the block of code at the bottom highlighted as odometry.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DUbBy7oAF0g?si=qZ7NFynMMB-uiq7D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
