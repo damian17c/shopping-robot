@@ -3,7 +3,7 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 
 
 ## Video Demo
-[![Shopping Robot Demo](http://img.youtube.com/vi/DUbBy7oAF0g/0.jpg)](http://www.youtube.com/watch?v=DUbBy7oAF0g "Shopping Robot Demo")
+[![Shopping Robot Demo](docs/thumbnail.jpg)](http://www.youtube.com/watch?v=DUbBy7oAF0g "Shopping Robot Demo")
 
 ## Mapping
   ### Method: Autonomous
