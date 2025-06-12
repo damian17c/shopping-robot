@@ -9,7 +9,7 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
   ### Method: Autonomous
 
 ### Description
-  - Autonomous mapping was achieved with LIDAR sensors that would record obstacle locations. The LIDAR sensors also helped tell where how the robot should move to continue to map the store, this is what made it autonomous. If the LIDAR detects obstacles too close to the right the robot would turn left and vice versa for the left. If the robot detects obstacles too close in front it simply rotates away. The mapping process is basically a drive obstacle avoidance mode that collects map data in the process.
+  - Autonomous mapping was achieved with LIDAR sensors that would record obstacle locations. The LIDAR sensors at the same time would tell how the robot should move to continue to map the store, this is what made it autonomous. If the LIDAR detects obstacles too close to the right the robot would turn left and vice versa for the left. If the robot detects obstacles too close in front it simply rotates away. The mapping process is basically a drive obstacle avoidance mode that collects map data in the process.
 
 ## Path Planning
 ### Method: RRT* with path smoothing
@@ -24,7 +24,8 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 
 ### Description
 - Inverse kinematics was done with the ikpy library. Most of the setup for ikpy followed this [guide](https://gist.github.com/ItsMichal/4a8fcb330d04f2ccba582286344dd9a7). The whole pick and place operation involved several states to fully perform. The states follow this order SCAN &rarr; ADJUST_POSE &rarr; SET_ARM &rarr; PICK &rarr; GRAB &rarr; RETREAT &rarr; PLACE.
-  * SCAN
+  * SCAN: This is the state where computer vision is utilized. The robot rotates around looking for a yellow cube to focus. Once a yellow cube is found it records whether the cube resides on an upper or lower shelf.
+  * ADJUST_POSE: 
    
 ## Computer Vision
 ### Method: Color Blob Detection with CV2
