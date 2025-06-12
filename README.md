@@ -23,8 +23,9 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 ### Method: Inverse Kinematics
 
 ### Description
-- Inverse kinematics was done with the ikpy library. Most of the setup followed this guide
-
+- Inverse kinematics was done with the ikpy library. Most of the setup for ikpy followed this [guide](https://gist.github.com/ItsMichal/4a8fcb330d04f2ccba582286344dd9a7). The whole pick and place operation involved several states to fully perform. The states follow this order SCAN &rarr; ADJUST_POSE &rarr; SET_ARM &rarr; PICK &rarr; GRAB &rarr; RETREAT &rarr; PLACE.
+  * SCAN
+   
 ## Computer Vision
 ### Method: Color Blob Detection with CV2
 
