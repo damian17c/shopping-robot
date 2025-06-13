@@ -24,8 +24,11 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 
 ### Description
 - Inverse kinematics was done with the ikpy library. Most of the setup for ikpy followed this [guide](https://gist.github.com/ItsMichal/4a8fcb330d04f2ccba582286344dd9a7). The whole pick and place operation involved several states to fully perform. The states follow this order SCAN &rarr; ADJUST_POSE &rarr; SET_ARM &rarr; PICK &rarr; GRAB &rarr; RETREAT &rarr; PLACE.
-  * SCAN: This is the state where computer vision is utilized. The robot rotates around looking for a yellow cube to focus. Once a yellow cube is found it records whether the cube resides on an upper or lower shelf.
-  * ADJUST_POSE: 
+  * **SCAN**: This is the state where computer vision is utilized. The robot rotates around looking for a yellow cube to focus. Once a yellow cube is found it records whether the cube resides on an upper or lower shelf.
+    
+  * **ADJUST_POSE**: If the cube is on an upper shelf the torso lift joint is adjusted accordingly. Also in this state the robot moves closer or away from the target cube to a specified distance to avoid collisions with the shelves when using inverse kinematics. The robot also rotates in order to stay centered with the target cube.
+    
+  * **SET_ARM**: The robot adjusts the arm to an optimal position for pickup depending on whether the cube is on an upper or lower shelf. This step is done once again to avoid shelf collisions and to move the arm and gripper joint into positions that make the actual pick operation with inverse kinematics more fluid. 
    
 ## Computer Vision
 ### Method: Color Blob Detection with CV2
