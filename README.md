@@ -23,14 +23,20 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 ### Method: Inverse Kinematics
 
 ### Description
-- Inverse kinematics was done with the ikpy library. Most of the setup for ikpy followed this [guide](https://gist.github.com/ItsMichal/4a8fcb330d04f2ccba582286344dd9a7). The whole pick and place operation involved several states to fully perform. The states follow this order SCAN &rarr; ADJUST_POSE &rarr; SET_ARM &rarr; PICK &rarr; GRAB &rarr; RETREAT &rarr; PLACE.
+- Inverse kinematics was done with the ikpy library. Most of the setup for ikpy followed this [guide](https://gist.github.com/ItsMichal/4a8fcb330d04f2ccba582286344dd9a7). The whole pick and place operation involved several states to fully perform. The states follow this order SCAN &rarr; ADJUST_POSE &rarr; SET_ARM &rarr; PICK &rarr; GRAB &rarr; RETREAT &rarr; PLACE &rarr; RELEASE.
   * **SCAN**: This is the state where computer vision is utilized. The robot rotates around looking for a yellow cube to focus. Once a yellow cube is found it records whether the cube resides on an upper or lower shelf.
     
   * **ADJUST_POSE**: If the cube is on an upper shelf the torso lift joint is adjusted accordingly. Also in this state the robot moves closer or away from the target cube to a specified distance to avoid collisions with the shelves when using inverse kinematics. The robot also rotates in order to stay centered with the target cube. Once in the ideal location the target coordinates are converted from camera frame to robot frame and stored in offset_target.
     
   * **SET_ARM**: The robot adjusts the arm to an optimal position for pickup depending on whether the cube is on an upper or lower shelf. This step is done once again to avoid shelf collisions and to move the arm and gripper joint into positions and orientations that make the actual pick operation with inverse kinematics more fluid.
  
-  * **PICK**: The pick operation 
+  * **PICK**: The pick operation calculates the inverse kinematics and executes the results on the arm. The operation recalculates the inverse kinematics until it is below a certain error threshold. This error is calculated by using the ikpy forward kinematics function on the IK results and finding the distance between the result position and the target position. Once the inverse kinematics is applied on the arm the robot drives forward slowly and stops after some delay. This ensures the cube is within the robot grippers.
+ 
+  *  **GRAB**: This operation simply closes the robot grippers to hold onto the cube.
+ 
+  *  **RETREAT**: The robot moves back for some delay to clear the arm from the shelf space to avoid collisions in the PLACE operation.
+ 
+  *  **PLACE**: The place operation moves the torso lift joint to its lowest position and moves the arm above the red basket. This step was initially attempted with inverse kinematics but there were many inconsistencies in how the arm moved which increased likelihood of collisions and caused strange orienations and imprecise positioning of the cubes above the red basket. As a result, the arm positions for this step were hardcoded. 
    
 ## Computer Vision
 ### Method: Color Blob Detection with CV2
