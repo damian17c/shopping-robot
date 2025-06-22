@@ -36,12 +36,15 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
  
   *  **RETREAT**: The robot moves back for some delay to clear the arm from the shelf space to avoid collisions in the PLACE operation.
  
-  *  **PLACE**: The place operation moves the torso lift joint to its lowest position and moves the arm above the red basket. This step was initially attempted with inverse kinematics but there were many inconsistencies in how the arm moved which increased likelihood of collisions and caused strange orienations and imprecise positioning of the cubes above the red basket. As a result, the arm positions for this step were hardcoded. 
+  *  **PLACE**: The place operation moves the torso lift joint to its lowest position and moves the arm above the red basket. This step was initially attempted with inverse kinematics but there were many inconsistencies in how the arm moved which increased likelihood of collisions and caused strange orienations and imprecise positioning of the cubes above the red basket. As a result, the arm positions for this step were hardcoded.
+ 
+  *  **RELEASE**: Opens the robot grippers holding the cube. 
    
 ## Computer Vision
 ### Method: Color Blob Detection with CV2
 
 ### Description
+- Computer Vision was done with color blob detection with the help of the cv2 library in python. It works by taking the camera data from the TIAGo robot and converting the image into HSV instead of RGB. Once in this format a yellow mask is created to 
 
 ## Localization
 ### Method: GPS
