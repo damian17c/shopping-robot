@@ -44,12 +44,13 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 ### Method: Color Blob Detection with CV2
 
 ### Description
-- Computer Vision was done with color blob detection with the help of the cv2 library in python. It works by taking the camera data from the TIAGo robot and converting the image into HSV instead of RGB. Once in this format a yellow mask is created to 
+- Computer Vision is performed with color blob detection using the cv2 library in Python. It works by taking the camera data from the TIAGo robot and converting the image into HSV format for better color distinction. Once in this format, a yellow mask is applied over the image to show only the yellow cubes in the image. Then, with the cv2 findContours function, the yellow contours from the image are matched with objects based on their position. Once matched, a yellow bounding rectangle is placed around the yellow cube in the image to highlight that the computer vision has identified a possible cube for pickup. To avoid highlighting yellow cubes that are far away a minimum contour area threshold was setup. Only yellow contours from the image larger than this threshold area are considered for possible yellow cubes. This was setup so as the robot rotates in the SCAN state, it does not focus on a cube far down the aisle or on the opposite shelf.
 
 ## Localization
 ### Method: GPS
 
 ### Description
+- For localization webots webots builtin GPS was used.
 
 ### Odometry
 - The code can be tested with odometry but it still has slight calculation errors and often crashes into obstacles. If you wish to test with odometry follow the comments in the PLAN and NAVIGATE modes and uncomment the block of code at the bottom highlighted as odometry.
