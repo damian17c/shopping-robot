@@ -50,7 +50,7 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 ### Method: GPS
 
 ### Description
-- For localization webots webots builtin GPS was used.
+- For localization webots builtin GPS was used.
 
 ### Odometry
 - The code can be tested with odometry but it still has slight calculation errors and often crashes into obstacles. If you wish to test with odometry follow the comments in the PLAN and NAVIGATE modes and uncomment the block of code at the bottom highlighted as odometry.
@@ -62,3 +62,4 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 - ikpy
 - cv2
 - random
+
