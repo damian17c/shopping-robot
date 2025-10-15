@@ -15,7 +15,7 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 ### Method: RRT* with path smoothing
 
 ### Description: 
-  - For path plannning the RRT* algorithm from [PythonRobotics](https://github.com/AtsushiSakai/PythonRobotics) was used with some slight adjustments to make it work. The mapping process creates a numpy array of booleans dictating whether an obstacle exists in that space or not. The RRT* algorithm does not take in a grid map for obstacles but rather an obstacle list that takes an (x,y) coordinate and a radius to tell the size of the obstacle. To resolve this each occupied pixel coordinate was converted to world cordinates and given a small radius based on the resolution of the grid map. Each was then added to the obstacle list which made up the map for RRT*. However, the RRT algorithm only allowed for a square random sampling area, while a rectangular area was needed. So this was adjusted in the algorithm by simply adding two morre parameters and checks to the random area.
+  - For path plannning the RRT* algorithm from [PythonRobotics](https://github.com/AtsushiSakai/PythonRobotics) was used with some slight adjustments to make it work. The mapping process creates a numpy array of booleans dictating whether an obstacle exists in that space or not. The RRT* algorithm does not take in a grid map for obstacles but rather an obstacle list that takes an (x,y) coordinate and a radius to tell the size of the obstacle. To resolve this each occupied pixel coordinate was converted to world cordinates and given a small radius based on the resolution of the grid map. Each was then added to the obstacle list which made up the map for RRT*. However, the RRT algorithm only allowed for a square random sampling area, while a rectangular area was needed. So this was adjusted in the algorithm by simply adding two more parameters and checks to the random area.
 
 - For path smoothing, a greedy smoothing function was used. The function would simply try to cut out unnecessary points, while trying to avoid creating collisions. More specifically, the function iteratively removes points from the path by taking every other point and checking if an obstacle free path exists between them. The function continues this process until there are less than 3 points in the path or it reaches the max iterations, specified as a parameter. The function checks for collisions by sampling points along the prospective path and checking if the distance between a sample point and an obstacle is less than the robot radius plus obstacle radius. 
 
@@ -62,4 +62,5 @@ This is a project where a TIAGo robot has to collect the 10 yellow cubes through
 - ikpy
 - cv2
 - random
+
 
